@@ -18,6 +18,86 @@
             endingLineNumber = "27"
             landmarkName = "unknown"
             landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "507DA4F9-424C-4F5F-A099-D6B5202387BC - b87d60dd0ab7b312"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherWidgetExtension.ForecastView_Previews.init() -&gt; WeatherWidgetExtension.ForecastView_Previews"
+                  moduleName = "WeatherWidgetExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lenanordwall/Desktop/WeatherAppAxel/WeatherAppAxel/ForecastView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  uuid = "507DA4F9-424C-4F5F-A099-D6B5202387BC - a9600cccd0cdff15"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherAppAxel.ForecastView_Previews.init() -&gt; WeatherAppAxel.ForecastView_Previews"
+                  moduleName = "WeatherAppAxel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lenanordwall/Desktop/WeatherAppAxel/WeatherAppAxel/ForecastView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FCA62836-3DD5-4B0A-8AF1-639DD4C7D5BF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeatherAppAxel/WeatherUtils.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "7"
+            endingLineNumber = "7"
+            landmarkName = "weatherDescription(for:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "FCA62836-3DD5-4B0A-8AF1-639DD4C7D5BF - e717c4f29edc92bb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherWidgetExtension.weatherDescription(for: Swift.Int) -&gt; Swift.String"
+                  moduleName = "WeatherWidgetExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lenanordwall/Desktop/WeatherAppAxel/WeatherAppAxel/WeatherUtils.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "7"
+                  endingLineNumber = "7"
+                  offsetFromSymbolStart = "141">
+               </Location>
+               <Location
+                  uuid = "FCA62836-3DD5-4B0A-8AF1-639DD4C7D5BF - 74f2700c2990479d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherAppAxel.weatherDescription(for: Swift.Int) -&gt; Swift.String"
+                  moduleName = "WeatherAppAxel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lenanordwall/Desktop/WeatherAppAxel/WeatherAppAxel/WeatherUtils.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "7"
+                  endingLineNumber = "7"
+                  offsetFromSymbolStart = "195">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

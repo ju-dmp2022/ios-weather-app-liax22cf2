@@ -1,16 +1,8 @@
-//
-//  WeatherView.swift
-//  WeatherAppAxel
-//
-//  Created by Lena Nordwall on 2024-08-04.
-//
-
+import SwiftUI
 import Foundation
 
-import SwiftUI
-
 struct WeatherView: View {
-    @StateObject var weatherManager = WeatherManager()
+    var weatherManager = WeatherManager()
 
     var body: some View {
         NavigationStack {
@@ -41,9 +33,7 @@ struct WeatherView: View {
             .navigationTitle("Weather")
         }
         .onAppear {
-            Task {
-                await weatherManager.startUpdatingLocation()
-            }
+            weatherManager.checkLocationAuthorizationStatus()  // Anropa rätt metod
         }
     }
 }

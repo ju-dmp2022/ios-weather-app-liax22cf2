@@ -8,41 +8,67 @@ struct WeatherEntry: TimelineEntry {
 }
 
 struct WeatherProvider: TimelineProvider {
+    
     func placeholder(in context: Context) -> WeatherEntry {
-        WeatherEntry(date: Date(), temperature: 0.0, weatherCode: 0)
+        return WeatherEntry(date: Date(), temperature: 15.0, weatherCode: 1)
     }
 
     func getSnapshot(in context: Context, completion: @escaping (WeatherEntry) -> Void) {
-        let entry = WeatherEntry(date: Date(), temperature: 0.0, weatherCode: 0)
+        let entry = WeatherEntry(date: Date(), temperature: 15.0, weatherCode: 1)
         completion(entry)
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<WeatherEntry>) -> Void) {
         Task {
-            let weatherData = await fetchWeatherData()
-            let entry: WeatherEntry
-            if let weatherData = weatherData {
-                entry = WeatherEntry(date: Date(), temperature: weatherData.currentWeather.temperature, weatherCode: weatherData.currentWeather.weathercode)
-            } else {
-                entry = WeatherEntry(date: Date(), temperature: 0.0, weatherCode: 0)
+            let defaults = UserDefaults(suiteName: "group.com.ju.weatherapp")
+            let latitude = defaults?.double(forKey: "latitude") ?? 0.0
+            let longitude = defaults?.double(forKey: "longitude") ?? 0.0
+
+            print("Fetched latitude: \(latitude), longitude: \(longitude)")
+
+            guard latitude != 0.0 && longitude != 0.0 else {
+                print("Invalid latitude or longitude")
+                let entry = WeatherEntry(date: Date(), temperature: 0.0, weatherCode: 0)
+                let timeline = Timeline(entries: [entry], policy: .atEnd)
+                completion(timeline)
+                return
             }
+
+            let weatherData = await fetchWeatherData(latitude: latitude, longitude: longitude)
+            
+            let entry = WeatherEntry(date: Date(), temperature: weatherData.temperature, weatherCode: weatherData.weatherCode)
             let timeline = Timeline(entries: [entry], policy: .atEnd)
             completion(timeline)
         }
     }
 
-    private func fetchWeatherData() async -> WeatherData? {
-        let urlString = "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current_weather=true&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=Europe%2FBerlin"
-        guard let url = URL(string: urlString) else { return nil }
+    private func fetchWeatherData(latitude: Double, longitude: Double) async -> (temperature: Double, weatherCode: Int) {
+        let urlString = "https://api.open-meteo.com/v1/forecast?latitude=\(latitude)&longitude=\(longitude)&current_weather=true&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=Europe%2FBerlin"
+        guard let url = URL(string: urlString) else { return (0.0, 0) }
 
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
             let weatherData = try JSONDecoder().decode(WeatherData.self, from: data)
-            return weatherData
+            
+            print("Fetched weather data: \(weatherData.currentWeather.temperature)°C")
+            
+            return (weatherData.currentWeather.temperature, weatherData.currentWeather.weathercode)
         } catch {
             print("Error fetching weather data: \(error)")
-            return nil
+            return (0.0, 0)
         }
+    }
+}
+
+struct WeatherWidget: Widget {
+    let kind: String = "WeatherWidget"
+
+    var body: some WidgetConfiguration {
+        StaticConfiguration(kind: kind, provider: WeatherProvider()) { entry in
+            WeatherWidgetEntryView(entry: entry)
+        }
+        .configurationDisplayName("Weather Widget")
+        .description("Displays the current weather.")
     }
 }
 
@@ -59,18 +85,9 @@ struct WeatherWidgetEntryView: View {
                 .font(.subheadline)
         }
         .padding()
-    }
-}
-
-struct WeatherWidget: Widget {
-    let kind: String = "WeatherWidget"
-
-    var body: some WidgetConfiguration {
-        StaticConfiguration(kind: kind, provider: WeatherProvider()) { entry in
-            WeatherWidgetEntryView(entry: entry)
+        .onAppear {
+            print("Rendering widget with temperature: \(entry.temperature)°C")
         }
-        .configurationDisplayName("Weather Widget")
-        .description("Displays the current weather.")
     }
 }
 

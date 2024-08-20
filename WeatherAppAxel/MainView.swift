@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct MainView: View {
-    @StateObject var weatherManager = WeatherManager()
+    var weatherManager = WeatherManager()
 
     var body: some View {
         NavigationStack {
@@ -23,9 +23,7 @@ struct MainView: View {
             .navigationTitle("Weather")
         }
         .onAppear {
-            Task {
-                await weatherManager.startUpdatingLocation()
-            }
+            weatherManager.checkLocationAuthorizationStatus()  // Anropa rätt metod
         }
     }
 }

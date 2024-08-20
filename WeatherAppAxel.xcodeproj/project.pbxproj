@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		900C7F952C6F2D42009923A4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909CB1B32C60135C002B511E /* ContentView.swift */; };
 		909CB1B22C60135C002B511E /* WeatherAppAxelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909CB1B12C60135C002B511E /* WeatherAppAxelApp.swift */; };
-		909CB1B42C60135C002B511E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909CB1B32C60135C002B511E /* ContentView.swift */; };
 		909CB1B62C601362002B511E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 909CB1B52C601362002B511E /* Assets.xcassets */; };
 		909CB1B92C601362002B511E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 909CB1B82C601362002B511E /* Preview Assets.xcassets */; };
 		909CB1C32C601363002B511E /* WeatherAppAxelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909CB1C22C601363002B511E /* WeatherAppAxelTests.swift */; };
@@ -162,7 +162,6 @@
 			isa = PBXGroup;
 			children = (
 				909CB1B12C60135C002B511E /* WeatherAppAxelApp.swift */,
-				909CB1B32C60135C002B511E /* ContentView.swift */,
 				909CB1DB2C601418002B511E /* ManageWeather.swift */,
 				909CB1DD2C601435002B511E /* WeatherData.swift */,
 				909CB1DF2C601466002B511E /* WeatherUtils.swift */,
@@ -187,6 +186,7 @@
 		909CB1C12C601363002B511E /* WeatherAppAxelTests */ = {
 			isa = PBXGroup;
 			children = (
+				909CB1B32C60135C002B511E /* ContentView.swift */,
 				909CB1C22C601363002B511E /* WeatherAppAxelTests.swift */,
 			);
 			path = WeatherAppAxelTests;
@@ -384,7 +384,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				909CB1B42C60135C002B511E /* ContentView.swift in Sources */,
 				909CB2212C6153D1002B511E /* MainView.swift in Sources */,
 				909CB1B22C60135C002B511E /* WeatherAppAxelApp.swift in Sources */,
 				909CB2232C6153EC002B511E /* CurrentWeatherView.swift in Sources */,
@@ -400,6 +399,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				900C7F952C6F2D42009923A4 /* ContentView.swift in Sources */,
 				909CB1C32C601363002B511E /* WeatherAppAxelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -573,9 +573,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WeatherAppAxel/WeatherAppAxel.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WeatherAppAxel/Preview Content\"";
+				DEVELOPMENT_TEAM = VB7F7XYK5J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "The app needs access to your location to show the weather";
@@ -603,9 +605,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WeatherAppAxel/WeatherAppAxel.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WeatherAppAxel/Preview Content\"";
+				DEVELOPMENT_TEAM = VB7F7XYK5J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "The app needs access to your location to show the weather";
@@ -704,8 +708,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = WeatherWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VB7F7XYK5J;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = WeatherWidget;
@@ -730,8 +736,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = WeatherWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VB7F7XYK5J;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = WeatherWidget;
