@@ -1,5 +1,4 @@
 import SwiftUI
-import Foundation
 
 struct WeatherView: View {
     var weatherManager = WeatherManager()
@@ -18,6 +17,7 @@ struct WeatherView: View {
                             .padding()
                     }
                     .padding()
+
                     NavigationLink(destination: ForecastView(dailyWeather: weatherData.daily)) {
                         Text("7-Day Forecast")
                             .foregroundColor(.blue)
@@ -29,14 +29,28 @@ struct WeatherView: View {
                         .font(.headline)
                         .padding()
                 }
+
+                
+                
+                NavigationLink(destination: SearchView()) {
+                    Text("Search for a City")
+                        .foregroundColor(.blue)
+                        .padding()
+                        .background(RoundedRectangle(cornerRadius: 10).stroke(Color.blue, lineWidth: 2))
+                }
+                .padding()
             }
             .navigationTitle("Weather")
         }
+        
         .onAppear {
-            weatherManager.checkLocationAuthorizationStatus()  // Anropa rätt metod
+            weatherManager.checkLocationAuthorizationStatus()
         }
     }
 }
+
+
+
 
 struct WeatherView_Previews: PreviewProvider {
     static var previews: some View {

@@ -1,4 +1,3 @@
-//test
 import Foundation
 import CoreLocation
 import Observation
@@ -14,7 +13,7 @@ class WeatherManager: NSObject, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         checkLocationAuthorizationStatus()
     }
-
+//dawdiuuawdh
     func checkLocationAuthorizationStatus() {
         switch locationManager.authorizationStatus {
         case .notDetermined:
@@ -34,15 +33,13 @@ class WeatherManager: NSObject, CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else { return }
-        print("Location updated: \(location.coordinate)")
+        
+        //Print coordinates to the console
+        print("Location updated: Latitude: \(location.coordinate.latitude), Longitude: \(location.coordinate.longitude)")
 
-        // Spara platsdata till UserDefaults med App Group
         let defaults = UserDefaults(suiteName: "group.com.ju.weatherapp")
         defaults?.set(location.coordinate.latitude, forKey: "latitude")
         defaults?.set(location.coordinate.longitude, forKey: "longitude")
-
-        
-        print("Saved latitude: \(location.coordinate.latitude), longitude: \(location.coordinate.longitude)")
 
         Task {
             await self.fetchWeather(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
